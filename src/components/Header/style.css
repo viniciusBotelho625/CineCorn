@@ -3,19 +3,20 @@ header {
     height: 60px;
     display: flex;
     padding: 20px;
-    background-color: rgb(130, 87, 229);
+    /* background-color: rgb(130, 87, 229); */
+    background-color: #e32636;
     align-items: center;
     justify-content: space-between;
     box-shadow: 2px 2px 2px 1px rgba(3, 3, 3, 0.2);
 }
 
-img {
+.card-logo img{
     width: 80px;
     margin-top: 50px;
     animation: bounce .5s alternate infinite ease-in;
 }
 
-.logo, p {
+.card-logo, p {
     text-decoration: none;
     font-size: 30px;
     font-family: 'Indie Flower', cursive;
@@ -32,15 +33,23 @@ span, .link {
     font-size: 23px;
 }
 
+span .favorite {
+  color: white;
+}
+
+
+span .favorite:hover {
+  opacity: 0.5;
+  transition: 1s;
+}
+
 @media screen and (min-width:701px) {
-    @keyframes bounce {
-      0% {
-        transform: translateY(25%);
-      }
-      100% {
-        transform: translateY(-5%);
-      }
+  @keyframes bounce {
+    0% {
+      transform: translateY(25%);
     }
-    
-    
+    100% {
+      transform: translateY(-5%);
+    }
   }
+}
