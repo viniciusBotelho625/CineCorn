@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
     // baseURL: 'https://sujeitoprogramador.com'
-    baseURL: 'https://api.themoviedb.org/3/movie',
+    baseURL: 'https://api.themoviedb.org/3/',
 });
 
 api.interceptors.request.use(async config => {
