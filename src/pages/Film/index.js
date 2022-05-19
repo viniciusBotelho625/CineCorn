@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 import api from "../../services/api";
 import './style.css';
+import { toast } from 'react-toastify'
 
 
 function Film() {
@@ -60,13 +61,17 @@ function Film() {
         const hasFilm = myFilmsSave.some((FilmSave) => FilmSave.id === film.id)
 
         if (hasFilm) {
-            alert("Esse filme já esta na lista")
+            toast.warning("Esse filme já esta na sua lista")
             return;
         }
 
         myFilmsSave.push(film);
         localStorage.setItem('@cinecorn', JSON.stringify(myFilmsSave));
-        alert("Filme salvo ")
+        toast.success("Filme salvo com sucesso!", {
+            style: {
+                backgroundColor: '#713200'
+            }
+        })
     } 
 
     return(
@@ -78,7 +83,7 @@ function Film() {
                 </div>
                 <div className="film-info-sinopse">
                     <h3>Sinopse</h3>
-                    <span>{`${sinopse} ...`}</span>
+                    <p className="text-sinopse">{`${sinopse} ...`}</p>
                     <div className="area-button">
                         <button onClick={saveFavorite}>Salvar</button>
                         <button>

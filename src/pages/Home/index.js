@@ -10,7 +10,7 @@ export default function Home() {
     const [films, setFilms]  = useState([]);
     const [initalFilms, setInitalFilms]  = useState([]);
     const [loading, setLoading] = useState(true);
-    const [search, setSearch] = useState('');
+   
 
     const baseImg = 'https://image.tmdb.org/t/p/original'
 
@@ -42,10 +42,16 @@ export default function Home() {
             return
         }
         
-        const filterFilms = films.filter(({title}) => title.includes(target.value))
+        const filterFilms = films
+            .filter(({title}) => title.toLowerCase().includes(target.value.toLowerCase()))
 
         setFilms(filterFilms)
     }
+
+    // const filmsFilter = films
+    //     .filter(({title}) => title.toLowerCase.includes(search.toLowerCase()));
+
+    // setFilms(filmsFilter)
   
     if(loading) {
         return(

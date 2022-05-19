@@ -1,5 +1,5 @@
 .container-favorite {
-    width: 1000px;
+    width: 800px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -8,6 +8,8 @@
 .header-favorite {
     color: #fff;
     display: inline-block;
+    margin-top: 70px;
+    font-family: 'Poppins', sans-serif;
 }
 
 ul {
