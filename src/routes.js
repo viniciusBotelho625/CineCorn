@@ -11,7 +11,7 @@ const Rotas = () => {
             <Header/>
             <Routes>
                 <Route exact path="/" element={<Home />}/>
-                <Route path="/favorite" element={<Favorite />}/>
+                <Route path="/favoritos" element={<Favorite />}/>
                 <Route path="/filme/:id" element={<Film />}/>
             </Routes>
         </BrowserRouter>

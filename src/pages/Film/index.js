@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import api from "../../services/api";
 import './style.css';
 
@@ -9,6 +9,7 @@ function Film() {
     const { id } = useParams();
     const [ film, setFilm ] = useState({});
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     const baseImg = 'https://image.tmdb.org/t/p/original'
 
@@ -25,7 +26,9 @@ function Film() {
                 console.log(resp.data)
            })
            .catch(() => {
-               console.log('Filme não encontrado')
+               console.log("filme não encontrado")
+               navigate('/', { replace: true });
+               return;
            })
         }
 
@@ -34,7 +37,7 @@ function Film() {
         return () => {
 
         }
-    },[])
+    },[navigate, id])
 
     if(loading) {
         return(
@@ -49,6 +52,23 @@ function Film() {
 
     const sinopse = film.overview.substr(0, [430])
 
+    function saveFavorite() {
+        const myList = localStorage.getItem("@cinecorn");
+
+        let myFilmsSave = JSON.parse(myList) || [];
+
+        const hasFilm = myFilmsSave.some((FilmSave) => FilmSave.id === film.id)
+
+        if (hasFilm) {
+            alert("Esse filme já esta na lista")
+            return;
+        }
+
+        myFilmsSave.push(film);
+        localStorage.setItem('@cinecorn', JSON.stringify(myFilmsSave));
+        alert("Filme salvo ")
+    } 
+
     return(
         <div className="film-card">
             <h1>{film.title}</h1>
@@ -60,9 +80,9 @@ function Film() {
                     <h3>Sinopse</h3>
                     <span>{`${sinopse} ...`}</span>
                     <div className="area-button">
-                        <button>Salvar</button>
+                        <button onClick={saveFavorite}>Salvar</button>
                         <button>
-                            <a href="#">Trailer</a>
+                            <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${film.title} Trailer`}>Trailer</a>
                         </button>
                     </div>
                 </div>

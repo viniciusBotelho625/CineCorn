@@ -1,0 +1,36 @@
+.container-favorite {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header-favorite {
+    color: #fff;
+    display: inline-block;
+}
+
+ul {
+    width: 100%;
+}
+
+.row-list {
+    background: none;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.row-list img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+span:hover {
+    color: #e32636;
+    opacity: 0.8;
+    transition: all ease-in-out 0.5s;
+}

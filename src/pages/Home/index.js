@@ -10,6 +10,7 @@ export default function Home() {
     const [films, setFilms]  = useState([]);
     const [initalFilms, setInitalFilms]  = useState([]);
     const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState('');
 
     const baseImg = 'https://image.tmdb.org/t/p/original'
 
@@ -64,7 +65,6 @@ export default function Home() {
                 </span>
                 <input type="search" 
                     className='input-search'
-                    // value={search}
                     onChange={handleChange}
                 />
             </div>
@@ -75,7 +75,7 @@ export default function Home() {
                             <article key={film.id}>
                                 <img src={baseImg + film.poster_path} alt={film.title }/>
                                 <div className="rodape-info">
-                                    <strong>{film.title}</strong>
+                                    <strong>{film.title.substr(0, [29])}</strong>
                                     <strong>Média: {film.vote_average}</strong>                               
                                 </div>
                             </article>
