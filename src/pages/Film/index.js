@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import api from "../../services/api";
 import './style.css';
 import { toast } from 'react-toastify'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 
 function Film() {
@@ -69,13 +71,18 @@ function Film() {
         localStorage.setItem('@cinecorn', JSON.stringify(myFilmsSave));
         toast.success("Filme salvo com sucesso!", {
             style: {
-                backgroundColor: '#713200'
+                backgroundColor: '#713200' 
             }
         })
     } 
 
     return(
         <div className="film-card">
+            <span className="close">
+                <Link to="/" className="close">
+                    <FontAwesomeIcon icon={faClose}/>
+                </Link>
+            </span>
             <h1>{film.title}</h1>
             <div className="container">
                 <div className="card-film-img">

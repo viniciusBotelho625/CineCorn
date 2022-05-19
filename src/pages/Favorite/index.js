@@ -9,7 +9,6 @@ export default function Favorite() {
 
     const [films, setFilms] = useState([]) 
     const baseImg = 'https://image.tmdb.org/t/p/original'
-
     
 
 
@@ -34,12 +33,16 @@ export default function Favorite() {
         }
         
     }
+    
+    const myFilmsSave = localStorage.getItem("@cinecorn");
+    const totalFilms = JSON.parse(myFilmsSave).length
+
 
     return(
         <div className='container-favorite'>
             <div className='header-favorite'>
-                <h2>Favoritos</h2>
-                <p>Total: 0</p>
+                <p>Favoritos</p>
+                <p>Total: {totalFilms}</p>
             </div> 
             {films.length === 0 && <span>Você não tem nenhum filme salvo</span>}
             <ul>

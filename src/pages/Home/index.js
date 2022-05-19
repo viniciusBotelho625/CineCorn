@@ -48,10 +48,6 @@ export default function Home() {
         setFilms(filterFilms)
     }
 
-    // const filmsFilter = films
-    //     .filter(({title}) => title.toLowerCase.includes(search.toLowerCase()));
-
-    // setFilms(filmsFilter)
   
     if(loading) {
         return(

@@ -4,6 +4,7 @@
     background-color: rgba(128, 128, 128, 0.295);
     border-radius: 20px;
     height: 550px;
+    position: relative;
 }
 
 .film-card h1 {
@@ -35,6 +36,13 @@
     max-height: 450px;
     height: 380px;
     position: relative;
+}
+
+.film-card .close {
+  position: absolute;
+  right: 0;
+  margin: 15px;
+  color: #fff;
 }
 
 .film-card .container .film-info-sinopse h3 {
@@ -74,6 +82,6 @@
     color: white;
 }
 
-.film-info-sinopse .area-button button:hover {
+.film-info-sinopse .area-button button:hover, .close:hover {
     opacity: 0.5;
 }
